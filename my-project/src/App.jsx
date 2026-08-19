@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
 
@@ -28,9 +30,10 @@ function App() {
       if (task.id === taskId) {
         return { ...task, isCompleted: !task.isCompleted };
       }
-
       return task;
     });
+
+    setTasks(newTasks);
   }
 
   function onDeleteTaskClick(taskId) {
