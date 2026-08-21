@@ -1,10 +1,13 @@
-import { ChevronRightIcon, DeleteIcon, TrashIcon } from "lucide-react";
+import { ChevronRightIcon, TrashIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Tasks({ tasks, onTaskClick, onDeleteTaskClick }) {
   const navigate = useNavigate();
 
   function onSeeDetailsClick(task) {
-    navigate(`/task?title=${task.title}&description=${task.description}`);
+    navigate(
+      `/task?title=${encodeURIComponent(task.title)}&description=${encodeURIComponent(task.description)}`,
+    );
   }
 
   return (
